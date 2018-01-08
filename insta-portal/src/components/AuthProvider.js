@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { FirebaseAuth } from 'react-firebaseui';
 import firebase from 'firebase/app';
+import 'firebase/auth';
 
 export default class AuthProvider extends Component {
 
@@ -11,7 +12,7 @@ export default class AuthProvider extends Component {
         // We will display Google and Facebook as auth providers.
         signInOptions: [
             firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-            firebase.auth.FacebookAuthProvider.PROVIDER_ID
+            firebase.auth.EmailAuthProvider.PROVIDER_ID
         ]
     };
 
@@ -21,6 +22,5 @@ export default class AuthProvider extends Component {
                 <FirebaseAuth uiConfig={this.uiConfig} firebaseAuth={firebase.auth()} />
             </div>
         );
-
     }
 }
